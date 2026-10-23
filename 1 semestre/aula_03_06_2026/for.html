@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function reflexoes(){
+            for(c = 0; c <= 5 ; c++){
+                document.getElementById('mensagens').innerHTML+='Isso é uma reflexão! o valor do contador é ${c} <br>'
+            }
+        }
+        function tabuada(){
+            let numeroTab = parseInt(numero.value)
+            for (c=0 ; c <10 ; c++){
+                resultado = numeroTab * c
+                document.getElementById('resTabuada').innerHTML+resultado
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>Veja aqui algumas mensagens de reflexão</h3>
+    <br>
+    <input type="button" value="Ver" onclick="reflexoes()">
+    <br>
+    <div id="mensagens"></div>
+
+    <input type="number" name="" id="numero">
+    <input type="button" value="ver tabuada" onclick="tabuada()">
+    <div id="resTabuada"></div>
+</body>
+</html>

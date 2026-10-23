@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let nome='Andrea'
+        let alunos=['Ana', 'Patricia' , 'Felipe']
+        console.log(nome)
+        console.log(alunos)
+        console.log(alunos[0])
+
+        let carros=['Fusca','Brasília','Opala','Voyage']
+
+        function insere(){
+            if (carro.value != '') {
+                carros.push(carro.value)
+                //document.getElementById('mostraCarros').innerHTML=carros
+                atualizaArray()
+                document.getElementById('carro').value = ''
+                document.getElementById('carro').focus()
+            } else {
+                alert('Digite o nome de um carro')
+            }
+        }   
+        
+        function atualizaArray(){
+            document.getElementById('mostraCarros').innerHTML=carros
+        }
+
+        function remove(){
+            carros.pop()
+            atualizaArray()
+        }
+
+        function insere_unshift(){
+            if (carro.value != '') {
+                carros.unshift(carro.value)
+                //document.getElementById('mostraCarros').innerHTML=carros
+                atualizaArray()
+                document.getElementById('carro').value = ''
+                document.getElementById('carro').focus()
+            } else {
+                alert('Digite o nome de um carro')
+            }
+        }
+
+        function remove_shift(){
+            carros.shift()
+            atualizaArray()
+        }
+        function verifica(){
+            alert(carros.length)
+        }
+    </script>
+</head>
+<body onload="atualizaArray()">
+    <div id="mostraCarros"></div>
+    <label for="carro">Insira o nome de um carro</label>
+    <input type="text" name="carro" id="carro">
+    <input type="button" value="Inserir" onclick="insere()">
+    <input type="button" value="Remover" onclick="remove()">
+    <input type="button" value="Inserir unshift" onclick="insere_unshift()">
+    <input type="button" value="Remover shift" onclick="remove_shift()">
+    <input type="button" value="Quantos registros tem o array?" onclick="verifica()">
+    <br>
+    <label for="indice">Digite o número de um índice</label>
+    <input type="number" name="indice" id="indice">
+    <input type="button" value="Verificar" onclick="mostraIndice()">
+</body>
+</html>

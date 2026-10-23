@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="adulto.css">
+  <script src="script.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Nabla&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Londrina+Shadow&family=Nabla&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <h1>Essa página vai mostrar um pouco das possíveis áreas de atuação de Engenharia de Software,também vai falar um pouco de dos cargos,salários e funcôes</h1>
+  <div id="container">
+    <table border="1">
+      <tr>
+        <th onclick="subtracao()">
+          <h3>Área:Desenvolvimento de Software (Core)</h2>
+        </th>
+        <th>
+          <h3>Área:Inteligência Artificial e Dados</h3>
+        </th>
+        <th>
+          <h3>Área:Infraestrutura, Cloud e DevOps</h3>
+        </th>
+        <th>
+          <h3>Área:Segurança da Informação (Cybersecurity)</h3>
+        </th>
+        <th>
+          <h3>Área:Arquitetura e Gestão</h3>
+        </th>
+      </tr>
+      <tr onclick="mostrarcargo(front)">
+        <td>Cargo:Desenvolvedor Front-end</td>
+        <td>Cargo:Engenheiro de Prompt</td>
+        <td>Cargo:Especialista em Cloud</td>
+        <td>Cargo:Analista Sênior</td>
+        <td>Cargo:Arquiteto de Software</td>
+      </tr>
+      <tr onclick="mostrardescricao(back)">
+        <td>Sálario:Júnior: R$ 5.000 – R$ 9.000</td>
+        <td>Sálario:Até R$ 26.000</td>
+        <td>Sálario:R$ 14.000 – R$ 19.000</td>
+        <td>Sálario:R$ 15.000 – R$ 19.000</td>
+        <td>Sálario:R$ 18.000 – R$ 25.000</td>
+      </tr>
+      <tr>
+        <td>Função:Cuida de tudo que o usuário vê e interage (botões, menus, animações).É a ponte entre o design e o
+          código.</td>
+        <td>Função:Especialista em saber como falar com IAs generativas para extrair os melhores resultados possíveis
+          para a empresa.</td>
+        <td>Função:specialista em serviços como AWS ou Azure. Ele garante que o sistema suporte milhões de acessos
+          usando servidores na nuvem.</td>
+        <td>Função:é o estrategista de defesa; ele identifica riscos antes que virem ataques e lidera a resposta rápida
+          caso a empresa sofra uma invasão.</td>
+        <td>Função:É quem desenha a planta do prédio. Ele decide quais tecnologias serão usadas e como as peças do
+          sistema vão se encaixar.</td>
+      </tr>
+    </table>
+    </table>
+  </div>
+  <script>
+    console.log('ola')
+    function subtracao(a, b) {
+      let a = document.getElementById("teste").value
+      console.log(a, b)
+    }
+    subtracao(6, 1)
+    subtracao(numero.value, 2)
+
+
+    function mostrarcargo(cargo){
+      if( cargo == "front"){
+        descricao.innerHTML = 
+      }
+    }
+
+
+  </script>
+</body>
+</html>

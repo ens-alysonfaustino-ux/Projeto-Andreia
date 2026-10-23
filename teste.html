@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let musica={
+            nome:'Evidências',
+            artista:'Chitãozinho e Xororó',
+            genero:'Sertanejo',
+            ano:1990
+        }
+
+        console.log(musica)
+        console.log(musica.nome)
+        musica.ano=1991
+        console.log(musica.ano)
+
+        let carro={
+            nome:'Gol',
+            marca:'Volkswagen',
+            cor:'Branco',
+            ano:2014,
+            potencia:'1.0',
+            adicionais:['Ar condicionado','Trava elétrica','Alarme'],
+            revisoes:{
+                revisao1:{
+                    data:'30/05/2015',
+                    km:'10.000'
+                },
+                revisao2:{
+                    data:'30/05/2016',
+                    km:'20.000'
+                }
+            }
+        }
+
+        function atualiza_carro(){
+            document.getElementById('mostra').innerHTML=`Nome: ${carro.nome} 
+                <br>
+                Marca: ${carro.marca}
+                <br>
+                Cor: ${carro.cor}
+                <br>
+                Ano: ${carro.ano}
+                <br>
+                Adicionais: ${carro.adicionais}`
+        }
+        function mudaCarro(){
+            if(nomeCarro.value != ''){
+                carro.nome= nomeCarro.value
+                atualiza_carro()
+                document.getElementById('nomeCarro').value=''
+            }
+            else{
+                 alert(`Insira o nome de um carro`)
+            }
+        }
+        function idadeCarro(){
+            let anoAtual = 2026
+            let anoCarro = carro.ano
+            let idade = anoAtual - anoCarro
+            alert(idade)
+        }
+
+            function temporizador() {
+                let atual = new Date()
+                let mes = atual.getMonth()
+                let horas = atual.getHours()
+                let minutos = atual.getMinutes()
+                let segundos = atual.getSeconds()
+                document.getElementById('verHora').innerHTML=(`${horas}:${minutos}:${segundos}`)
+            }
+
+            setInterval(temporizador,1000)
+            
+    </script>
+</head>
+<body onload="atualiza_carro()">
+    <div id="verHora"></div>
+    <div id="mostra"></div>
+    <label for="nomeCarro">Nome do carro:</label>
+    <input type="text" name="nomeCarro" id="nomeCarro">
+    <br>
+    <input type="button" value="Mudar nome do carro" onclick="mudaCarro()">
+    <br>
+    <input type="button" value="Verificar idade do carro" onclick="idadeCarro()">
+</body>
+</html>

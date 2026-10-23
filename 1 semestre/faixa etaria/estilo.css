@@ -1,0 +1,93 @@
+body {
+    font-family: 'Poppins', sans-serif;
+   background-color: antiquewhite;
+    margin: 0;
+    padding: 20px;
+}
+.segura{
+    width: 500px;
+    height: 200px;
+    background-color:grey;
+    border-radius: 20px;
+    margin: auto;
+    
+}
+
+h1 {
+    color: #00043663;
+  font-family: "Faster One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+}
+.texto2{
+    width: 500px;
+    margin: auto;
+}
+p {
+  font-family: "Moo Lah Lah", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.container {
+    margin-top: 20px;
+    width: 500px;
+    margin: auto;
+}
+
+
+.idade{
+  font-family: "Danfo", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+  "ELSH" 0;
+}
+
+input {
+    padding: 8px;
+    width: 150px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    align-items: center;
+
+}
+
+button {
+    padding: 8px 16px;
+    border: none;
+    background-color: #00043663;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+  font-family: "Frijole", system-ui;
+  font-weight: 400;
+  font-style: normal;
+
+
+}
+
+button:hover {
+    background-color: #1a237e;
+    margin: auto;
+}
+
+.rodape{
+    width: 100%;
+    background-color: #1a237e;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+
+}
+.assi{
+  font-family: "Are You Serious", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 50px;
+}

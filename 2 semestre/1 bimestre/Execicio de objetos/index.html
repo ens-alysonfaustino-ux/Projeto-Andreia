@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9ecef;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        #container {
+            width: 700px;
+            max-width: 100%;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        body > h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        #verHora {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #mostra {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        /* PAINEL DO CLIENTE */
+
+        #cliente {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        #cliente label {
+            display: block;
+            margin-top: 12px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        #cliente input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        #cliente input[type="button"] {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        #cliente input[type="button"]:hover {
+            background-color: #555;
+        }
+
+        /* PAINEL DO ADMINISTRADOR */
+
+        #adm {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        #adm h1 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #222;
+        }
+
+        #adm label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        #adm input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        #adm input[type="button"] {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
+
+        #adm input[type="button"]:hover {
+            background-color: #555;
+        }
+
+        /* TESTE DE PROPRIEDADES */
+
+        #propriedades {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        #propriedades h1 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        #propriedades input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        #propriedades input[type="button"] {
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
+
+        #propriedades input[type="button"]:hover {
+            background-color: #555;
+        }
+
+        #resultadoPropriedade {
+            margin-top: 15px;
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            line-height: 1.8;
+        }
+    </style>
+
+    <script>
+
+        let energeti = {
+            marca: 'Red Bull',
+            estoque: 300,
+            Preco_venda: 12.00,
+            Custo_aquisicao: 10.00
+        }
+
+        let energetico = {
+            marca: 'Red Bull',
+            estoque: 100,
+            Preco_venda: 12.00,
+            Custo_aquisicao: 10.00
+        }
+
+        let valorCompra = 0
+
+
+        function atualiza_estoque() {
+            document.getElementById('mostra').innerHTML = ` 
+                Marca: ${energetico.marca}
+                <br>
+                Estoque: ${energetico.estoque}
+                <br>
+                Preço de Venda: R$ ${energetico.Preco_venda.toFixed(2)}
+                <br>
+                Custo de Aquisição: R$ ${energetico.Custo_aquisicao.toFixed(2)}
+            `
+        }
+
+
+        function compra() {
+            let quantidade = parseInt(document.getElementById('ncomnpra').value)
+
+            if (quantidade > energetico.estoque) {
+                alert('Não tem estoque suficiente para compra')
+            }
+            else if (quantidade > 0) {
+
+                valorCompra = quantidade * energetico.Preco_venda
+                energetico.estoque = energetico.estoque - quantidade
+
+                alert(
+                    'Quantidade comprada: ' + quantidade +
+                    '\nValor da compra: R$ ' + valorCompra.toFixed(2)
+                )
+
+                atualiza_estoque()
+                document.getElementById('ncomnpra').value = ''
+            }
+            else {
+                alert('Insira alguma quantidade para comprar')
+            }
+        }
+
+
+        function avista() {
+            if (valorCompra > 0) {
+
+                let desconto = valorCompra * 0.05
+                let valorFinal = valorCompra - desconto
+
+                alert(
+                    'Valor da compra: R$ ' + valorCompra.toFixed(2) +
+                    '\nDesconto de 5%: R$ ' + desconto.toFixed(2) +
+                    '\nValor à vista: R$ ' + valorFinal.toFixed(2)
+                )
+            }
+            else {
+                alert('Faça uma compra primeiro')
+            }
+        }
+
+
+        function pagamento() {
+            let parcelas = parseInt(document.getElementById('parcelas').value)
+
+            if (valorCompra > 0) {
+
+                if (parcelas == 2 || parcelas == 3) {
+
+                    let valorParcela = valorCompra / parcelas
+
+                    alert(
+                        'Valor da compra: R$ ' + valorCompra.toFixed(2) +
+                        '\nParcelas: ' + parcelas +
+                        '\nValor de cada parcela: R$ ' + valorParcela.toFixed(2)
+                    )
+                }
+                else {
+                    alert('Digite 2 ou 3 parcelas')
+                }
+            }
+            else {
+                alert('Faça uma compra primeiro')
+            }
+        }
+
+
+        function verficaestoque() {
+            let estoque = energetico.estoque
+            alert("A quantidade de estoque atual é: " + estoque)
+        }
+
+
+        function adiciona() {
+            let quantidade = parseInt(document.getElementById('nadiciona').value)
+
+            if (quantidade > 0) {
+
+                energetico.estoque = energetico.estoque + quantidade
+
+                atualiza_estoque()
+
+                document.getElementById('nadiciona').value = ''
+            }
+            else {
+                alert('Insira alguma quantidade para adicionar')
+            }
+        }
+
+        setInterval(temporizador, 1000)
+
+      
+
+    </script>
+</head>
+
+<body onload="atualiza_estoque()">
+
+    <h1>Painel de Cliente</h1>
+
+    <div id="container">
+
+        <div id="verHora"></div>
+
+        <div id="mostra"></div>
+
+
+        <div id="cliente">
+
+            <label for="ncomnpra">
+                Quantidade que deseja comprar:
+            </label>
+
+            <input type="number" id="ncomnpra">
+
+            <input type="button" value="Comprar" onclick="compra()">
+
+            <input type="button" value="Pagar à vista" onclick="avista()">
+
+
+            <label for="parcelas">
+                Quantidade de parcelas:
+            </label>
+
+            <input type="number" id="parcelas">
+
+            <input type="button" value="Parcelar" onclick="pagamento()">
+
+        </div>
+
+
+        <div id="adm">
+
+            <h1>Painel de Administrador</h1>
+
+            <br>
+
+            <input
+                type="button"
+                value="Verificar quantidade em estoque"
+                onclick="verficaestoque()"
+            >
+
+            <label for="nadiciona">
+                Quantidade que deseja adicionar no estoque:
+            </label>
+
+            <input type="number" id="nadiciona">
+
+            <input type="button" value="Adicionar" onclick="adiciona()">
+
+        </div>
+
+
+</body>
+
+</html>

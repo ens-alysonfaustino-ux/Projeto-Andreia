@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        let playlist = ['Blinding Lights', 'Shape of You', 'Sweater Weather', 'Starboy']
+        function insere() {
+    if (musica.value != '') {
+        if (playlist.length >= 10) {
+            alert("Não é bagunça");
+            return; // Impede a inserção
+        }
+        playlist.push(musica.value);
+        atualizaArray();
+        document.getElementById('musica').value = '';
+        document.getElementById('musica').focus();
+    } else {
+        alert('Digite o nome de uma música');
+    }
+}
+        function toca() {
+            if (musica.value != '') {
+                alert('Tocando: ' + playlist.at(0) + " e removendo da playlist")
+                playlist.shift()
+                atualizaArray()
+            }
+            else {
+                alert('Não Há músicas para ouvir ')
+            }
+
+        }
+        function atualizaArray() {
+            document.getElementById('mostraMusicas').innerHTML = playlist
+        }
+
+        function remove() {
+            playlist.pop()
+            atualizaArray()
+        }
+        function remove_shift() {
+            playlist.length = 0
+            atualizaArray()
+        }
+        function verifica() {
+            alert(playlist.length + "/10")
+            atualizaArray()
+
+        }
+        function ordernar() {
+            playlist.sort()
+            atualizaArray()
+
+        }
+          function inverter() {
+            playlist.reverse()
+            atualizaArray()
+
+        }
+        
+      function pesquisar(){
+            let nomeMusica = document.getElementById('pesquisar').value;
+       
+            if(playlist.includes(nomeMusica)){
+                alert("A música "+nomeMusica+" está na playlist")
+            }else{
+                alert("A musica não esta na playlist")
+            }
+        }
+    </script>
+</head>
+<style>
+/* Fundo da página */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    background: #181818;
+    width: 600px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    text-align: center;
+}
+
+/* Título */
+h1 {
+    color: #1DB954;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Playlist */
+#mostraMusicas {
+    background: #282828;
+    color: white;
+    min-height: 80px;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    word-wrap: break-word;
+}
+
+/* Texto */
+label {
+    color: white;
+    font-size: 18px;
+}
+
+/* Campos de texto */
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: #3e3e3e;
+    color: white;
+}
+
+/* Botões */
+input[type="button"] {
+    background: #1DB954;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 18px;
+    margin: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* Hover amarelo */
+input[type="button"]:hover {
+    background: #FFD600;
+    color: black;
+    transform: scale(1.05);
+}
+
+/* Campo de pesquisa */
+#pesquisar {
+    margin-top: 15px;
+}
+
+</style>
+<body onload="atualizaArray()">
+    <div id="container">
+    <div id="mostraMusicas"></div>
+    <label for="playlist">Insira o nome de uma música</label>
+    <input type="text" name="musica" id="musica">
+    <input type="button" value="Adicionar Músicas" onclick="insere()">
+    <input type="button" value="Remover Música" onclick="remove()">
+    <input type="button" value="Tocar Música" onclick="toca()">
+    <input type="button" value="Remover todas as músicas" onclick="remove_shift()">
+    <input type="button" value="Quantas músicas tem a playlist" onclick="verifica()">
+    <input type="button" value="Ordenar Playlist" onclick="ordernar()">
+    <input type="button" value="Inverter Ordem" onclick="inverter()">
+    <br>
+    <input type="text" name="Pesquisar" id="pesquisar">
+    <input type="button" value="pesquisar música" onclick="pesquisar()">
+    <br>
+    </div>
+</body>
+
+</html>

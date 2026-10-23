@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Áreas da Engenharia de Software</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            width: 90%;
+            border-radius: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            border-radius: 20px;
+            background-color: blueviolet;
+        }
+
+        th {
+            background-color: #d9eaff;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+
+        tr:hover {
+            background-color: #eee;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+
+        #textoDescricao {
+            margin-top: 20px;
+            padding: 15px;
+            background: white;
+            border: 1px solid #ccc;
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 20px;
+        }
+
+        footer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>
+        Essa página mostra algumas áreas de atuação da Engenharia de Software,
+        além de cargos, salários e funções.
+    </h1>
+
+    <table>
+        <tr>
+            <th>
+                <h3>Área: Desenvolvimento de Software (Core)</h3>
+            </th>
+
+            <th>
+                <h3>Área: Inteligência Artificial e Dados</h3>
+            </th>
+
+            <th>
+                <h3>Área: Infraestrutura, Cloud e DevOps</h3>
+            </th>
+
+            <th>
+                <h3>Área: Segurança da Informação (Cybersecurity)</h3>
+            </th>
+
+            <th>
+                <h3>Área: Arquitetura e Gestão</h3>
+            </th>
+        </tr>
+
+        <tr>
+            <td onclick="mostrarDescricao('front')">
+                Cargo: Desenvolvedor Front-end
+            </td>
+
+            <td onclick="mostrarDescricao('engenheiro')">
+                Cargo: Engenheiro de Prompt
+            </td>
+
+            <td onclick="mostrarDescricao('cloud')">
+                Cargo: Especialista em Cloud
+            </td>
+
+            <td onclick="mostrarDescricao('analista')">
+                Cargo: Analista Sênior
+            </td>
+
+            <td onclick="mostrarDescricao('arquiteto')">
+                Cargo: Arquiteto de Software
+            </td>
+        </tr>
+
+        <tr>
+            <td>Salário: Júnior: R$ 5.000 – R$ 9.000</td>
+            <td>Salário: Até R$ 26.000</td>
+            <td>Salário: R$ 14.000 – R$ 19.000</td>
+            <td>Salário: R$ 15.000 – R$ 19.000</td>
+            <td>Salário: R$ 18.000 – R$ 25.000</td>
+        </tr>
+
+        <tr>
+            <td>Função: Cuida da interface visual dos sistemas.</td>
+            <td>Função: Cria e otimiza prompts para IA.</td>
+            <td>Função: Gerencia infraestrutura em nuvem.</td>
+            <td>Função: Identifica riscos e protege sistemas.</td>
+            <td>Função: Define a arquitetura dos sistemas.</td>
+        </tr>
+    </table>
+
+    <div id="textoDescricao">
+        Clique em um cargo para ver a descrição.
+    </div>
+
+    <footer>
+        <small>Feito por Alyson Faustino</small>
+    </footer>
+
+    <script>
+        function mostrarDescricao(cargo) {
+            let descricao = "";
+
+            switch (cargo) {
+
+                case "front":
+                    descricao =
+                        "Trabalha na parte visual dos sistemas e sites, desenvolvendo layouts, animações e interações utilizando HTML, CSS e JavaScript.";
+                    break;
+
+                case "engenheiro":
+                    descricao =
+                        "Especialista em Inteligência Artificial, criando estratégias para extrair os melhores resultados de modelos generativos.";
+                    break;
+
+                case "cloud":
+                    descricao =
+                        "Responsável pela infraestrutura em nuvem usando plataformas como AWS, Azure e Google Cloud.";
+                    break;
+
+                case "analista":
+                    descricao =
+                        "Atua na identificação de vulnerabilidades e implementação de soluções de segurança.";
+                    break;
+
+                case "arquiteto":
+                    descricao =
+                        "Define tecnologias, padrões e a estrutura geral dos sistemas da empresa.";
+                    break;
+            }
+
+            document.getElementById("textoDescricao").innerText = descricao;
+        }
+    </script>
+
+</body>
+
+</html>
